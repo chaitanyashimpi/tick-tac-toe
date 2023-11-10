@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef } from "react";
+import "./App.css";
+import Logo from "./components/Logo";
+import Picker from "./components/Picker";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [showPopup, setShowPopup] = useState(false);
+	const timeoutRef = useRef(null);
+
+	const handleInviteClick = () => {
+		// Show the popup
+		setShowPopup(true);
+
+		// Set a new timeout to hide the popup after 6 seconds
+		timeoutRef.current = setTimeout(() => {
+			setShowPopup(false);
+		}, 1000);
+	};
+
+	return (
+		<div className="app flex">
+			<div className="mobile flex flex-col">
+				<Logo />
+				<Picker />
+				<div className="button buttonYellow flex">NEW GAME ( VS CPU )</div>
+				<div className="button buttonCyan flex">
+					NEW GAME ( VS HUMAN ) Coming soon
+				</div>
+				<div
+					className="button buttonSmallYellow flex"
+					onClick={handleInviteClick}
+				>
+					Invite your friend
+				</div>
+
+				{showPopup && (
+					<div className="button buttonInfoAlert flex">Invite link copied</div>
+				)}
+			</div>
+		</div>
+	);
 }
 
 export default App;
