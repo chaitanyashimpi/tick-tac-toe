@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react";
 import "./App.css";
 import Logo from "./components/Logo";
 import Picker from "./components/Picker";
+import { Link } from "react-router-dom";
+import Quote from "./components/Quote";
 
 function App() {
 	const [showPopup, setShowPopup] = useState(false);
@@ -14,7 +16,7 @@ function App() {
 		// Set a new timeout to hide the popup after 6 seconds
 		timeoutRef.current = setTimeout(() => {
 			setShowPopup(false);
-		}, 1000);
+		}, 500	);
 	};
 
 	return (
@@ -22,7 +24,7 @@ function App() {
 			<div className="mobile flex flex-col">
 				<Logo />
 				<Picker />
-				<div className="button buttonYellow flex">NEW GAME ( VS CPU )</div>
+				<Link to="/game" className="button buttonYellow flex">NEW GAME ( VS CPU )</Link>
 				<div className="button buttonCyan flex">
 					NEW GAME ( VS HUMAN ) Coming soon
 				</div>
@@ -37,6 +39,7 @@ function App() {
 					<div className="button buttonInfoAlert flex">Invite link copied</div>
 				)}
 			</div>
+			<Quote/>
 		</div>
 	);
 }
