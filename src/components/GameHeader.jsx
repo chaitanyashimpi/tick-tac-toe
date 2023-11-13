@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "./Logo";
 
 const GameHeader = () => {
+
 	return (
 		<div className="gameHeader flex">
 			<Logo />

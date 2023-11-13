@@ -5,9 +5,12 @@ import Picker from "./components/Picker";
 import { Link } from "react-router-dom";
 import Quote from "./components/Quote";
 
+
 function App() {
 	const [showPopup, setShowPopup] = useState(false);
 	const timeoutRef = useRef(null);
+
+	
 
 	const handleInviteClick = () => {
 		// Show the popup

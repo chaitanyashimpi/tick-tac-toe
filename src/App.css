@@ -137,21 +137,106 @@ a {
 	border-radius: 5px;
 	cursor: pointer;
 }
-.gameSquares {
+.board {
+	width: 416px;
+	height: 320px;
+	margin: 20px 0;
+	display: flex;
 	justify-content: space-between;
-	width: 320px;
-	height: 120px;
+	flex-direction: column;
+	position: relative;
 }
-.square {
-	width: 86px;
-	height: 86px;
+.boardRow{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+.block {
+	width: 90px;
+	height: 90px;
 	border-radius: 10px;
 	background: #1f3540;
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	display: inline-block;
 }
-.square:hover{
-	background: #254655;
+/* .block:hover {
+	background: #2546551a;
+} */
+
+.mark1{
+	background: #1f3540;
+	background: url('./asset/image/Circle.png') no-repeat center;
 }
+
+.mark2{
+	background: #1f3540;
+	background: url('./asset/image/Cross.png') no-repeat center;
+}
+
+.whoWon{
+	position: absolute;
+	z-index: 2;
+	top: -65%;
+	border-radius: 43px;
+	height: 748px;
+	width: 416px;
+	background-color: rgba(0, 0, 0, 0.75);
+}
+
+.winner{
+	background-color: #192a32;
+	width: 100%;
+	height: 200px;
+	top: 20%;
+	flex-direction: column;
+	z-index: 100;
+}
+.winner p{
+	font-size: 17px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin: 0;
+}
+.winner h1{
+	display: flex;
+	align-items: center;
+	color: #f7b336;
+}
+.winner h1 img{
+	margin: 0 20px;
+}
+.winnerButtons{
+	display: flex;
+	align-items: center;
+}
+.winnerButtons .button{
+	width: 150px;
+	margin: 0 10px;
+	height: 40px;
+	letter-spacing: 1px;
+	font-size: 14px;
+}
+/* .block img{
+	width: 60px;
+	opacity: 0.2;
+	animation: .3s grow ;
+} */
+/* .squareCenter{
+	width: 350px;
+	display: flex;
+	padding-left: 30px;
+}
+@keyframes grow {
+	0%{
+		transform: scale(0);
+	}
+	100%{
+		transform: scale(1);
+	}
+} */
+	
+
 .score {
 	width: 86px;
 	height: 49px;
@@ -202,7 +287,7 @@ a {
 .quote p:first-child {
 	color: #31c4be;
 	font-size: 26px;
-	font-weight: bolder	;
+	font-weight: bolder;
 	margin-bottom: 0;
 	margin-top: 0;
 }
