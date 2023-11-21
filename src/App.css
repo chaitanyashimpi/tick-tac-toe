@@ -45,6 +45,10 @@ a {
 	font-size: 20px;
 }
 
+/* Switch */
+
+
+
 .choice {
 	background-color: #192a32;
 	width: 240px;
@@ -64,10 +68,18 @@ a {
 .choiceLogo:hover {
 	background-color: #fff;
 }
+
 .choice {
 	cursor: pointer;
 }
 .choiceLogo:hover > svg path {
+	fill: #192a32;
+	stroke: #192a32;
+}
+.selected{
+	background-color: #fff;
+}
+.selected > svg path {
 	fill: #192a32;
 	stroke: #192a32;
 }

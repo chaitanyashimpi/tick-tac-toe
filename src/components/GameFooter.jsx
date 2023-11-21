@@ -1,11 +1,11 @@
 import React from "react";
 
-const GameFooter = () => {
+const GameFooter = (props) => {
 	return (
 		<div className="flex gameFoot">
 			<div className="score flex">
 				<span>X (YOU)</span>
-				<span>0</span>
+				<span>{props.userScore}</span>
 			</div>
 			<div className="score flex">
 				<span>TIES</span>
@@ -13,7 +13,7 @@ const GameFooter = () => {
 			</div>
 			<div className="score flex">
 				<span>O (CPU)</span>
-				<span>0</span>
+				<span>{props.pcScore}</span>
 			</div>
 		</div>
 	);

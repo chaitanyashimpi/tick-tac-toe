@@ -12,9 +12,10 @@ let chance = 1;
 const Board = () => {
 	const [marks, setMarks] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
-
 	const [user, setUser] = useState(1);
 	const [winner, setWinner] = useState(0);
+
+	setUser(1)
 
 	let pc = user === 2 ? 1 : 2;
 
@@ -56,8 +57,8 @@ const Board = () => {
 				setWinner(2);
 				chance = 1;
 			}
-			if(chance === 9){
-				setWinner(3)
+			if (chance === 9) {
+				setWinner(3);
 			}
 		}
 
@@ -108,27 +109,21 @@ const Block = ({ mark, changeMark, position }) => {
 };
 
 const Winner = ({ winner }) => {
-
 	const replayGame = () => {
 		window.location.reload();
-	}
+	};
 
 	return (
 		<div className="whoWon flex">
 			<div className="winner flex">
-				<p>{winner === 1 ? (
-						'PC WON!'
-					) : (
-						'User WON!'
-					)} </p>
+				<p>{winner === 1 ? "PC WON!" : "User WON!"} </p>
 				<h1 style={winner === 1 ? { color: "#f7b336" } : { color: "#32c4c3" }}>
 					{winner === 1 ? (
-						<img src={Circle} alt="Circle" /> 
-					)  : (
+						<img src={Circle} alt="Circle" />
+					) : (
 						<img src={Cross} alt="Cross" />
 					)}
-					{winner === 3? 'Tie Brake' : 'Takes a round'}
-					
+					{winner === 3 ? "Tie Brake" : "Takes a round"}
 				</h1>
 				<div className="winnerButtons">
 					<Link to="/" className="button buttonCyan flex">
@@ -144,12 +139,15 @@ const Winner = ({ winner }) => {
 };
 
 const Game = () => {
+	const [userScore, setUserScore] = useState(0);
+	const [pcScore, setPCScore] = useState(0);
+
 	return (
 		<div className="app flex">
 			<div className="mobile flex flex-col">
-				<GameHeader/>
-				<Board />
-				<GameFooter />
+				<GameHeader />
+				<Board userScore = {setUserScore} pcScore = {setPCScore}/>
+				<GameFooter userScore={userScore} pcScore={pcScore} />
 			</div>
 			<Quote />
 		</div>
