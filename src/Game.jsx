@@ -12,10 +12,10 @@ let chance = 1;
 const Board = () => {
 	const [marks, setMarks] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
-	const [user, setUser] = useState(1);
+	let user = 1
 	const [winner, setWinner] = useState(0);
 
-	setUser(1)
+	// setUser(1)
 
 	let pc = user === 2 ? 1 : 2;
 
